@@ -1,19 +1,21 @@
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
+// import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
 
-public class LibraryGUI extends JFrame implements ActionListener {
+public class LibraryGui extends JFrame {
     
-    LibraryGUI() {
+    LibraryGui() {
 
-
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(900, 600);
+        this.setVisible(true);
 
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    // @Override
+    // public void actionPerformed(ActionEvent e) {
         
-    }
+    // }
 
 }
