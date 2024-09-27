@@ -16,6 +16,9 @@ public class Main {
             System.out.println("CSV file not found. Please check the file path.");
         }
 
+        // Start the gui
+        LibraryGui gui = new LibraryGui(library);
+
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("1. Display top 10 books");

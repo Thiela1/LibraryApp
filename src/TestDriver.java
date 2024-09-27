@@ -1,5 +1,6 @@
 public class TestDriver {
     public static void main(String[] args) {
-        LibraryGui gui = new LibraryGui();
+        Library testlibrary = new Library();
+        LibraryGui gui = new LibraryGui(testlibrary);
     }
 }
