@@ -1,13 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class Library {
-    private List<book> books = new ArrayList<>();
+public class LinkedLibrary {
+    private List<book> books = new LinkedList<book>();
     
     public void readBooksFromCSV(String fileName) {
         String line = "";
