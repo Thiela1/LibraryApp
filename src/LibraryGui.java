@@ -2,6 +2,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -15,6 +16,7 @@ public class LibraryGui extends JFrame implements ActionListener {
     JButton search;
     JButton author;
     JButton pubYear;
+    JCheckBox asc;
 
     Font hFont = new Font(null, Font.PLAIN, 25);
     Font bFont = new Font(null, Font.BOLD, 10);
@@ -37,7 +39,6 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Top ten button
         topTen = new JButton();
         topTen.addActionListener(this);
-        topTen.putClientProperty("library", library);
         topTen.setFocusable(false);
         topTen.setBounds(75, 100, 125, 25);
         topTen.setText("Top Ten Books");
@@ -46,7 +47,6 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Search button
         search = new JButton();
         search.addActionListener(this);
-        topTen.putClientProperty("library", library);
         search.setFocusable(false);
         search.setBounds(75, 150, 125, 25);
         search.setText("Search for Book");
@@ -55,7 +55,6 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Sort by author button
         author = new JButton();
         author.addActionListener(this);
-        topTen.putClientProperty("library", library);
         author.setFocusable(false);
         author.setBounds(75, 200, 125, 25);
         author.setText("Sort by Author");
@@ -64,11 +63,16 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Sort by year button
         pubYear = new JButton();
         pubYear.addActionListener(this);
-        
         pubYear.setFocusable(false);
         pubYear.setBounds(75, 250, 125, 25);
         pubYear.setText("Sort by Year");
         pubYear.setFont(bFont);
+
+        // Ascend/Descend checkbox
+        asc = new JCheckBox();
+        asc.setBounds(75, 275, 150, 20);
+        asc.setText("Ascending");
+        asc.setFocusable(false);
 
         // Attach everything and setup frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,26 +84,31 @@ public class LibraryGui extends JFrame implements ActionListener {
         this.add(search);
         this.add(author);
         this.add(pubYear);
+        this.add(asc);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == topTen) {
-            // Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
             String tempList = tempLib.displayTopBooks();
 
             JOptionPane.showMessageDialog(null, tempList, "Top Ten Books", JOptionPane.PLAIN_MESSAGE);
         }
         if (e.getSource() == search) {
-            // Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
             SearchWindow sw = new SearchWindow(tempLib);
         }
         if (e.getSource() == author) {
+            tempLib.sortByAuthor(asc.isSelected());
+            String tempList = tempLib.displayTopBooks();
 
+            JOptionPane.showMessageDialog(null, tempList, "Sorted By Author", JOptionPane.PLAIN_MESSAGE);
         }
         if (e.getSource() == pubYear) {
+            tempLib.sortByPublicationYear(asc.isSelected());
+            String tempList = tempLib.displayTopBooks();
 
+            JOptionPane.showMessageDialog(null, tempList, "Sorted By Publication Year", JOptionPane.PLAIN_MESSAGE);
         }
     }
 

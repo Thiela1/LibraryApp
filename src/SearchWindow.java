@@ -45,8 +45,6 @@ public class SearchWindow extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
-            // Get a temp library ref
-            // Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
 
             // Search for book
             book foundBook = tempLib.binarySearchById(Integer.parseInt(searchField.getText()));
