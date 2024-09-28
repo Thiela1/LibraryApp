@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class LinkedLibrary {
-    private List<book> books = new LinkedList<book>();
+    private List<book> books = new LinkedList<>();
     
     public void readBooksFromCSV(String fileName) {
         String line = "";
@@ -41,12 +41,14 @@ public class LinkedLibrary {
     }
 
 
-    public void displayTopBooks() {
+    public String displayTopBooks() {
         // Display the first 10 books, or all if there are less than 10
+        String temp = "";
         int limit = Math.min(10, books.size());
         for (int i = 0; i < limit; i++) {
-            System.out.println(books.get(i).toString());
+            temp += "" + books.get(i).toString() + "\n";
         }
+        return temp;
     }
 
     public book binarySearchById(int id) {
