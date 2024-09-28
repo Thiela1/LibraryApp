@@ -19,7 +19,12 @@ public class LibraryGui extends JFrame implements ActionListener {
     Font hFont = new Font(null, Font.PLAIN, 25);
     Font bFont = new Font(null, Font.BOLD, 10);
 
+    Library tempLib;
+
     LibraryGui(Library library) {
+
+        // Assign the temp lib
+        tempLib = library;
 
         // App header
         appHeader = new JLabel();
@@ -41,6 +46,7 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Search button
         search = new JButton();
         search.addActionListener(this);
+        topTen.putClientProperty("library", library);
         search.setFocusable(false);
         search.setBounds(75, 150, 125, 25);
         search.setText("Search for Book");
@@ -49,6 +55,7 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Sort by author button
         author = new JButton();
         author.addActionListener(this);
+        topTen.putClientProperty("library", library);
         author.setFocusable(false);
         author.setBounds(75, 200, 125, 25);
         author.setText("Sort by Author");
@@ -57,6 +64,7 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Sort by year button
         pubYear = new JButton();
         pubYear.addActionListener(this);
+        
         pubYear.setFocusable(false);
         pubYear.setBounds(75, 250, 125, 25);
         pubYear.setText("Sort by Year");
@@ -78,13 +86,14 @@ public class LibraryGui extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == topTen) {
-            Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
+            // Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
             String tempList = tempLib.displayTopBooks();
 
             JOptionPane.showMessageDialog(null, tempList, "Top Ten Books", JOptionPane.PLAIN_MESSAGE);
         }
         if (e.getSource() == search) {
-
+            // Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
+            SearchWindow sw = new SearchWindow(tempLib);
         }
         if (e.getSource() == author) {
 
