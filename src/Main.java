@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-    	String path = "/Users/amberthiel/desktop/books.csv"; // Path to books.csv
+    	String path = "books.csv"; // Path to books.csv
    	    Library library = new Library();
    	 
         try {

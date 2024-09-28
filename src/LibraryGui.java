@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 import java.awt.BorderLayout;
@@ -31,6 +32,7 @@ public class LibraryGui extends JFrame implements ActionListener {
         // Top ten button
         topTen = new JButton();
         topTen.addActionListener(this);
+        topTen.putClientProperty("library", library);
         topTen.setFocusable(false);
         topTen.setBounds(75, 100, 125, 25);
         topTen.setText("Top Ten Books");
@@ -76,7 +78,10 @@ public class LibraryGui extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == topTen) {
+            Library tempLib = (Library)((JButton)e.getSource()).getClientProperty("library");
+            String tempList = tempLib.displayTopBooks();
 
+            JOptionPane.showMessageDialog(null, tempList, "Top Ten Books", JOptionPane.PLAIN_MESSAGE);
         }
         if (e.getSource() == search) {
 

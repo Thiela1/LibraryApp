@@ -41,12 +41,16 @@ public class Library {
     }
 
 
-    public void displayTopBooks() {
+    public String displayTopBooks() {
         // Display the first 10 books, or all if there are less than 10
+        String temp = "";
         int limit = Math.min(10, books.size());
         for (int i = 0; i < limit; i++) {
-            System.out.println(books.get(i).toString());
+            temp += "" + books.get(i).toString() + "\n";
+            // System.out.println(books.get(i).toString());
         }
+        // System.out.println(temp);
+        return temp;
     }
 
     public book binarySearchById(int id) {
