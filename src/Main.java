@@ -4,8 +4,8 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-    	String path = "/Users/amberthiel/desktop/books.csv"; // Path to books.csv
+    public static void main(String[] args) throws Exception {
+    	String path = "books.csv"; // Path to books.csv
    	    Library library = new Library();
    	 
         try {
@@ -15,6 +15,9 @@ public class Main {
             e.printStackTrace();
             System.out.println("CSV file not found. Please check the file path.");
         }
+
+        // Start the gui
+        LibraryGui gui = new LibraryGui(library);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
