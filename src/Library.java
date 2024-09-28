@@ -47,9 +47,7 @@ public class Library {
         int limit = Math.min(10, books.size());
         for (int i = 0; i < limit; i++) {
             temp += "" + books.get(i).toString() + "\n";
-            // System.out.println(books.get(i).toString());
         }
-        // System.out.println(temp);
         return temp;
     }
 
