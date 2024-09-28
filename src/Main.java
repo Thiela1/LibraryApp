@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws Exception {
     	String path = "books.csv"; // Path to books.csv
-   	    Library library = new Library();
+   	    LinkedLibrary library = new LinkedLibrary();
    	 
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));

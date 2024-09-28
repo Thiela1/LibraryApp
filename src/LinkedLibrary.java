@@ -62,6 +62,15 @@ public class LinkedLibrary {
         return null;  // Not found
     }
 
+    public book linearSearchById(int id) {
+        for (int i = 0; i < books.size(); i++) {
+            if (id == books.get(i).getBookId()) {
+                return books.get(i);
+            }
+        }
+        return null;
+    }
+
     public void sortByAuthor(boolean ascending) {
         // Sort by author name
         books.sort(Comparator.comparing(book::getAuthor));

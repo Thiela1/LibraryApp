@@ -21,9 +21,9 @@ public class LibraryGui extends JFrame implements ActionListener {
     Font hFont = new Font(null, Font.PLAIN, 25);
     Font bFont = new Font(null, Font.BOLD, 10);
 
-    Library tempLib;
+    LinkedLibrary tempLib;
 
-    LibraryGui(Library library) {
+    LibraryGui(LinkedLibrary library) {
 
         // Assign the temp lib
         tempLib = library;
