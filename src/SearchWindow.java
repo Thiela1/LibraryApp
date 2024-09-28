@@ -46,8 +46,23 @@ public class SearchWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submit) {
 
+            // Get temp ints for testing purposes
+            long prevTime;
+            long currTime;
+            long totalTime;
+
+            // Capture Time before search
+            prevTime = System.currentTimeMillis();
+
             // Search for book
             book foundBook = tempLib.binarySearchById(Integer.parseInt(searchField.getText()));
+
+            // Capture Time After search
+            currTime = System.currentTimeMillis();
+
+            // Calc total search time and print to console
+            totalTime = currTime - prevTime;
+            System.out.println("Time taken to search: " + totalTime);
 
             // Check if book found, if not give error
             if (foundBook != null) {
