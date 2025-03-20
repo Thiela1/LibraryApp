@@ -10,6 +10,7 @@ public class Main {
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             library.readBooksFromCSV(path);
+            br.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("CSV file not found. Please check the file path.");
