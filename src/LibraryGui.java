@@ -38,35 +38,27 @@ public class LibraryGui extends JFrame implements ActionListener {
 
         // Top ten button
         topTen = new JButton();
-        topTen.addActionListener(this);
-        topTen.setFocusable(false);
+        instButton(topTen);
         topTen.setBounds(75, 100, 125, 25);
         topTen.setText("Top Ten Books");
-        topTen.setFont(bFont);
 
         // Search button
         search = new JButton();
-        search.addActionListener(this);
-        search.setFocusable(false);
+        instButton(search);
         search.setBounds(75, 150, 125, 25);
         search.setText("Search for Book");
-        search.setFont(bFont);
 
         // Sort by author button
         author = new JButton();
-        author.addActionListener(this);
-        author.setFocusable(false);
+        instButton(author);
         author.setBounds(75, 200, 125, 25);
         author.setText("Sort by Author");
-        author.setFont(bFont);
 
         // Sort by year button
         pubYear = new JButton();
-        pubYear.addActionListener(this);
-        pubYear.setFocusable(false);
+        instButton(pubYear);
         pubYear.setBounds(75, 250, 125, 25);
         pubYear.setText("Sort by Year");
-        pubYear.setFont(bFont);
 
         // Ascend/Descend checkbox
         asc = new JCheckBox();
@@ -110,6 +102,14 @@ public class LibraryGui extends JFrame implements ActionListener {
 
             JOptionPane.showMessageDialog(null, tempList, "Sorted By Publication Year", JOptionPane.PLAIN_MESSAGE);
         }
+    }
+
+    void instButton(JButton b) {
+        
+        b.addActionListener(this);
+        b.setFocusable(false);
+        b.setFont(bFont);
+
     }
 
 }
